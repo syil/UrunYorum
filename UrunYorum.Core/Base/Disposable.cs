@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace UrunYorum.Core
+namespace UrunYorum.Core.Base
 {
     public class Disposable : IDisposable
     {

@@ -44,10 +44,12 @@
     <Compile Include="Base\IDataServiceBase.cs" />
     <Compile Include="IServices\IManufacturerDataService.cs" />
     <Compile Include="IServices\IProductDataService.cs" />
+    <Compile Include="IServices\IRouteMapDataService.cs" />
     <Compile Include="IServices\IUserDataService.cs" />
     <Compile Include="ManufacturerDataService.cs" />
     <Compile Include="ProductDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteMapDataService.cs" />
     <Compile Include="UserDataService.cs" />
   </ItemGroup>
   <ItemGroup>

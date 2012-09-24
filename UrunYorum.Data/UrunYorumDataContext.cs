@@ -12,7 +12,7 @@ namespace UrunYorum.Data.Engine
     public class UrunYorumDataContext : DbContext
     {
         public UrunYorumDataContext()
-            : base(SystemConstans.ConnectionStringName)
+            : base(SystemConstants.ConnectionStringName)
         {
 
         }
@@ -25,6 +25,7 @@ namespace UrunYorum.Data.Engine
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Login> Logins { get; set; }
+        public DbSet<RouteMap> RouteMaps { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

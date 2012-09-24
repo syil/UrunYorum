@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UrunYorum.Core
 {
-    public class SystemConstans
+    public class SystemConstants
     {
         public const string ConnectionStringName = "UrunYorum.ConnectionString";
     }

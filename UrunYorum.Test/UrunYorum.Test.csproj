@@ -53,6 +53,7 @@
     <Compile Include="DatabaseObjectTests\DboTestBase.cs" />
     <Compile Include="DatabaseObjectTests\ManufacturerDboTest.cs" />
     <Compile Include="DatabaseObjectTests\ProductDboTest.cs" />
+    <Compile Include="DatabaseObjectTests\RouteMapDboTest.cs" />
     <Compile Include="DatabaseObjectTests\UserDboTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,7 +80,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="TestInsertProduct.orderedtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -36,5 +36,12 @@ namespace UrunYorum.Controllers
 
             return View();
         }
+
+        public ActionResult Details(string slug)
+        {
+            ViewBag.slug = slug;
+
+            return View(new Product());
+        }
     }
 }

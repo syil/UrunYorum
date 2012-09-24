@@ -21,15 +21,17 @@ namespace UrunYorum.Test.DatabaseObjectTests
             dataService = new ManufacturerDataService(repository, UnitOfWork);
         }
 
-        [Priority(100), TestMethod]
+        [TestMethod]
         public void AddManufacturerTest()
         {
+            int randomManufacturerNumber = GetRandom();
+
             Manufacturer newEntity = new Manufacturer();
-            newEntity.FullName = "Sapphire Technology Ltd.";
-            newEntity.Name = "Sapphire";
+            newEntity.FullName = string.Format("Marka {0} Technology Ltd.", randomManufacturerNumber);
+            newEntity.Name = string.Format("Marka {0}", randomManufacturerNumber);
             newEntity.IsActive = true;
             newEntity.InsertDate = DateTime.Now;
-            newEntity.WebsiteURL = "http://www.sapphire.com";
+            newEntity.WebsiteURL = string.Format("http://www.marka{0}.com", randomManufacturerNumber);
 
             dataService.Insert(newEntity);
             dataService.Save();

@@ -61,15 +61,17 @@
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="IRepositories\IManufacturerRepository.cs" />
     <Compile Include="IRepositories\IProductRepository.cs" />
+    <Compile Include="IRepositories\IRouteMapRepository.cs" />
     <Compile Include="IRepositories\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ManufacturerRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\RouteMapRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="UrunYorumDataContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

@@ -1,0 +1,75 @@
+﻿@model UrunYorum.Data.Entities.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Product - @ViewBag.slug</legend>
+
+    <div class="display-label">ProductName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductName)
+    </div>
+
+    <div class="display-label">IsApporoved</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsApporoved)
+    </div>
+
+    <div class="display-label">IsDeleted</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsDeleted)
+    </div>
+
+    <div class="display-label">ManufacturingYear</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ManufacturingYear)
+    </div>
+
+    <div class="display-label">ShortDescription</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ShortDescription)
+    </div>
+
+    <div class="display-label">MetaKeywords</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MetaKeywords)
+    </div>
+
+    <div class="display-label">SumRating</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SumRating)
+    </div>
+
+    <div class="display-label">ManufacturerId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ManufacturerId)
+    </div>
+
+    <div class="display-label">AddedById</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddedById)
+    </div>
+
+    <div class="display-label">UpdateDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UpdateDate)
+    </div>
+
+    <div class="display-label">FullDescription</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FullDescription)
+    </div>
+
+    <div class="display-label">InsertDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InsertDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

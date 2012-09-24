@@ -30,10 +30,22 @@ namespace UrunYorum
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    "Default", // Route name
+            //    "{controller}/{action}/{id}", // URL with parameters
+            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            //);
+
             routes.MapRoute(
-                "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                "ProductDetail",
+                "product/{slug}",
+                new { Controller = "Product", Action = "Details" }
+            );
+
+            routes.MapRoute(
+                "CategoryProducts",
+                "category/{slug}",
+                new { Controller = "Product", Action = "ListByCategory" }
             );
         }
 
@@ -65,6 +77,9 @@ namespace UrunYorum
 
             container.RegisterType<IManufacturerRepository, ManufacturerRepository>(new HttpContextLifetimeManager<IManufacturerRepository>());
             container.RegisterType<IManufacturerDataService, ManufacturerDataService>(new HttpContextLifetimeManager<IManufacturerRepository>());
+
+            container.RegisterType<IRouteMapRepository, RouteMapRepository>(new HttpContextLifetimeManager<IRouteMapRepository>());
+            container.RegisterType<IRouteMapDataService, RouteMapDataService>(new HttpContextLifetimeManager<IRouteMapRepository>());
 
             return container;
         }

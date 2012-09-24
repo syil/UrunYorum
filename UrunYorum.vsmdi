@@ -3,11 +3,4 @@
   <TestList name="Lists of Tests" id="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
     <RunConfiguration id="973a3d94-41c0-442b-97ef-2efef8981e54" name="Local" storage="local.testsettings" type="Microsoft.VisualStudio.TestTools.Common.TestRunConfiguration, Microsoft.VisualStudio.QualityTools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   </TestList>
-  <TestList name="Create Product" id="a3133a59-5fa0-4b6b-9627-837efcc6127b" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
-    <TestLinks>
-      <TestLink id="d95cab19-03e9-8284-4f92-0ed725242f71" name="AddProductTest" storage="urunyorum.test\bin\debug\urunyorum.test.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-      <TestLink id="e55907c1-8225-72b8-b2da-306f1e12c42d" name="AddManufacturerTest" storage="urunyorum.test\bin\debug\urunyorum.test.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-      <TestLink id="e8fb5262-8084-2e17-b880-4b0e4133e1b5" name="AddUserTest" storage="urunyorum.test\bin\debug\urunyorum.test.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    </TestLinks>
-  </TestList>
 </TestLists>

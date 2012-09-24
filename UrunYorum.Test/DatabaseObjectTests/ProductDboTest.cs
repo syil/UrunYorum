@@ -28,11 +28,11 @@ namespace UrunYorum.Test.DatabaseObjectTests
             dataService  = new ProductDataService(repository, UnitOfWork);
         }
 
-        [Priority(10), TestMethod]
+        [TestMethod]
         public void AddProductTest()
         {
-            User user = userRepository.Get(u => u.Name == "Sinan YIL");
-            Manufacturer manufacturer = manufacturerRepository.Get(m => m.Name == "Sapphire");
+            User user = userRepository.All.OrderBy(u => Guid.NewGuid()).FirstOrDefault(); // Random User
+            Manufacturer manufacturer = manufacturerRepository.All.OrderBy(m => Guid.NewGuid()).FirstOrDefault(); // Random Manufacturer
 
             Product newEntity = new Product();
             newEntity.AddedBy = user;
@@ -40,11 +40,10 @@ namespace UrunYorum.Test.DatabaseObjectTests
             newEntity.InsertDate = DateTime.Now;
             newEntity.IsApporoved = true;
             newEntity.IsDeleted = false;
-            newEntity.ShortDescription = "Ekran kartı";
-            newEntity.ProductName = "Radeon HD6950 2Gb PCI-e";
-            newEntity.ShortDescription = "Güzel güçlü bir kart işte";
-            newEntity.FullDescription = "DVI çıkışlardan biri DVI-I ama diğeri DVI-D. Keşke diğeri de DVI-I olsaydı, HDMI çıkışlı bi monitore para vermek zorunda kalmazdım.";
-            newEntity.ManufacturingYear = 2010;
+            newEntity.ShortDescription = GetRandomString(6);
+            newEntity.ProductName = string.Format("Ürün {0}", GetRandom());
+            newEntity.FullDescription = GetRandomString(26);
+            newEntity.ManufacturingYear = GetRandom(2008, 2012);
 
             dataService.Insert(newEntity);
             dataService.Save();

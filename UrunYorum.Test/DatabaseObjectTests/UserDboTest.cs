@@ -21,13 +21,13 @@ namespace UrunYorum.Test.DatabaseObjectTests
             dataService = new UserDataService(repository, UnitOfWork);
         }
 
-        [Priority(100), TestMethod]
+        [TestMethod]
         public void AddUserTest()
         {
             User newEntity = new User();
             newEntity.IsActive = true;
             newEntity.IsDeleted = false;
-            newEntity.Name = "Sinan YIL";
+            newEntity.Name = string.Format("Kullanıcı {0}", GetRandom());
             newEntity.RegisterDate = DateTime.Now;
 
             dataService.Insert(newEntity);

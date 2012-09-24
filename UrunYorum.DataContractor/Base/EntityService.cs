@@ -11,7 +11,7 @@ namespace UrunYorum.Data.Contractor.Base
         where TIEntityRepository : IRepositoryBase<TEntity>
         where TEntity : class
     {
-        private TIEntityRepository repository;
+        protected TIEntityRepository repository;
         private IUnitOfWork unitOfWork;
 
         public EntityService(TIEntityRepository repository, IUnitOfWork unitOfWork)
