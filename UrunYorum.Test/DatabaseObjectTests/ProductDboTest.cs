@@ -7,6 +7,7 @@ using UrunYorum.Data.Contractor;
 using UrunYorum.Data.Engine.Repositories;
 using UrunYorum.Data.Engine.Infrastructure;
 using UrunYorum.Data.Entities;
+using UrunYorum.Base;
 
 namespace UrunYorum.Test.DatabaseObjectTests
 {
@@ -43,7 +44,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
             newEntity.IsApporoved = true;
             newEntity.IsDeleted = false;
             newEntity.ShortDescription = GetRandomString(6);
-            newEntity.ProductName = string.Format("Ürün {0}", GetRandom());
+            newEntity.ProductName = "Ürün {0}".FormatWith(GetRandom());
             newEntity.FullDescription = GetRandomString(26);
             newEntity.ManufacturingYear = GetRandom(2008, 2012);
 

@@ -7,6 +7,7 @@ using UrunYorum.Data.Engine.Repositories;
 using UrunYorum.Data.Contractor;
 using UrunYorum.Data.Entities;
 using UrunYorum.Base.Utilities;
+using UrunYorum.Base;
 
 namespace UrunYorum.Test.DatabaseObjectTests
 {
@@ -18,6 +19,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
 
         private ProductRepository productRepository;
         private ManufacturerRepository manufacturerRepository;
+        private CategoryRepository categoryRepository;
         private UserRepository userRepository;
 
         public RouteMapDboTest()
@@ -25,6 +27,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
             productRepository = new ProductRepository(DbContextFactory);
             manufacturerRepository = new ManufacturerRepository(DbContextFactory);
             userRepository = new UserRepository(DbContextFactory);
+            categoryRepository = new CategoryRepository(DbContextFactory);
 
             repository = new RouteMapRepository(DbContextFactory);
             dataService = new RouteMapDataService(repository, UnitOfWork);
@@ -39,7 +42,24 @@ namespace UrunYorum.Test.DatabaseObjectTests
             newEntity.InsertDate = DateTime.Now;
             newEntity.ItemType = typeof(Product).FullName;
             newEntity.ItemId = product.ProductId;
-            newEntity.Slug = string.Format("{0}_{1}", StringOperations.UrlFriendlyString(product.ProductName), StringOperations.GetRandomString(5));
+            newEntity.Slug = "{0}_{1}".FormatWith(StringOperations.UrlFriendlyString(product.ProductName), StringOperations.GetRandomString(5));
+
+            dataService.Insert(newEntity);
+            dataService.Save();
+
+            Assert.IsNotNull(newEntity.RouteMapId);
+        }
+
+        [TestMethod]
+        public void AddRouteMapForCategory()
+        {
+            Category category = categoryRepository.All.OrderBy(c => Guid.NewGuid()).FirstOrDefault();
+
+            RouteMap newEntity = new RouteMap();
+            newEntity.InsertDate = DateTime.Now;
+            newEntity.ItemType = typeof(Category).FullName;
+            newEntity.ItemId = category.CategoryId;
+            newEntity.Slug = StringOperations.UrlFriendlyString(category.Name);
 
             dataService.Insert(newEntity);
             dataService.Save();

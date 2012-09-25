@@ -7,6 +7,7 @@ using UrunYorum.Data.Engine.Repositories;
 using UrunYorum.Data.Contractor;
 using UrunYorum.Data.Entities;
 using UrunYorum.Base.Utilities;
+using UrunYorum.Base;
 
 namespace UrunYorum.Test.DatabaseObjectTests
 {
@@ -43,10 +44,10 @@ namespace UrunYorum.Test.DatabaseObjectTests
         [TestMethod]
         public void AddSubCategoryTest()
         {
-            Category parentCategory = dataService.All.OrderBy(c => Guid.NewGuid()).FirstOrDefault();
+            Category parentCategory = dataService.GetMany(c => c.ParentCategoryId == null).OrderBy(c => Guid.NewGuid()).FirstOrDefault();
 
             Category newEntity = new Category();
-            newEntity.Name = string.Format("Kategori {0}", GetRandom());
+            newEntity.Name = "Kategori {0}".FormatWith(GetRandom());
             newEntity.IsActive = true;
             newEntity.Description = GetRandomString(10);
             newEntity.ParentCategory = parentCategory;

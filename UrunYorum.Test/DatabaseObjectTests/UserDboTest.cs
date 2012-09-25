@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UrunYorum.Data.Engine.Repositories;
 using UrunYorum.Data.Contractor;
 using UrunYorum.Data.Entities;
+using UrunYorum.Base;
 
 namespace UrunYorum.Test.DatabaseObjectTests
 {
@@ -27,7 +28,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
             User newEntity = new User();
             newEntity.IsActive = true;
             newEntity.IsDeleted = false;
-            newEntity.Name = string.Format("Kullanıcı {0}", GetRandom());
+            newEntity.Name = "Kullanıcı {0}".FormatWith(GetRandom());
             newEntity.RegisterDate = DateTime.Now;
 
             dataService.Insert(newEntity);

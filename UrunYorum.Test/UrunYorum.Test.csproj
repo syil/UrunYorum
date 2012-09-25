@@ -85,10 +85,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="TestInsertProduct.orderedtest">
+    <None Include="app.config" />
+    <None Include="InitialTest.orderedtest">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

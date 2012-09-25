@@ -1,6 +1,6 @@
 RewriteEngine On
-#RewriteLog "rewrite.log"
-#RewriteLogLevel 9
+RewriteLog "rewrite.log"
+RewriteLogLevel 9
 
 RouteIgnoreUrl {resource}.axd/{*pathInfo}
 

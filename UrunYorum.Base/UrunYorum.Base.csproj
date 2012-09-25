@@ -49,6 +49,7 @@
     <Compile Include="Exceptions\NonFatalException.cs" />
     <Compile Include="Exceptions\RouteMapCannotResolvedException.cs" />
     <Compile Include="Exceptions\UrunYorumExceptionBase.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="IConfigurationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Strings.Designer.cs">

@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UrunYorum.Data.Engine.Repositories;
 using UrunYorum.Data.Contractor;
 using UrunYorum.Data.Entities;
+using UrunYorum.Base;
 
 namespace UrunYorum.Test.DatabaseObjectTests
 {
@@ -27,11 +28,11 @@ namespace UrunYorum.Test.DatabaseObjectTests
             int randomManufacturerNumber = GetRandom();
 
             Manufacturer newEntity = new Manufacturer();
-            newEntity.FullName = string.Format("Marka {0} Technology Ltd.", randomManufacturerNumber);
-            newEntity.Name = string.Format("Marka {0}", randomManufacturerNumber);
+            newEntity.FullName = "Marka {0} Technology Ltd.".FormatWith(randomManufacturerNumber);
+            newEntity.Name = "Marka {0}".FormatWith(randomManufacturerNumber);
             newEntity.IsActive = true;
             newEntity.InsertDate = DateTime.Now;
-            newEntity.WebsiteURL = string.Format("http://www.marka{0}.com", randomManufacturerNumber);
+            newEntity.WebsiteURL = "http://www.marka{0}.com".FormatWith(randomManufacturerNumber);
 
             dataService.Insert(newEntity);
             dataService.Save();

@@ -44,9 +44,18 @@ namespace UrunYorum.Controllers
 
         public ActionResult ListByCategory(string slug)
         {
-            ViewBag.slug = slug;
+            List<Product> categoryProducts = null;
+            try
+            {
+                Guid categoryId = GetMappedId(slug, typeof(Category));
+                categoryProducts = productDataService.GetMany(p => p.Categories.Exists(c => c.CategoryId == categoryId)).ToList();
+            }
+            catch (Exception exc)
+            {
+                ViewData.ModelState.AddModelError("ModelErrors", exc.Message);
+            }
 
-            return View(productDataService.All);
+            return View(categoryProducts);
         }
     }
 }

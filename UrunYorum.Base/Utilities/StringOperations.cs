@@ -21,8 +21,8 @@ namespace UrunYorum.Base.Utilities
 
                 if (char.IsLetterOrDigit(ch))
                 {
-                    if (IsTurkishCharacter(ch))
-                        sb.Append(ReplaceTurkishCharacter(ch));
+                    if (IsUnicodeCharacter(ch))
+                        sb.Append(ReplaceUnicodeCharacter(ch));
                     else
                         sb.Append(ch);
                 }
@@ -53,12 +53,12 @@ namespace UrunYorum.Base.Utilities
             return sb.ToString();
         }
 
-        public static bool IsTurkishCharacter(char c)
+        public static bool IsUnicodeCharacter(char c)
         {
             return UnicodeCharacters.Contains(c);
         }
 
-        public static char ReplaceTurkishCharacter(char c)
+        public static char ReplaceUnicodeCharacter(char c)
         {
             return ReplaceUnicodeCharacters[UnicodeCharacters.IndexOf(c)];
         }
