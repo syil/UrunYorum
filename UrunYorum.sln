@@ -20,6 +20,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrunYorum.Data.Contractor",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrunYorum.Data.Entities", "UrunYorum.Data.Entities\UrunYorum.Data.Entities.csproj", "{53EC4548-28A1-41EF-A78B-EDD9ABFA86DD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Binaries", "Binaries", "{2C967AF4-A897-4A5B-B6C6-452C33470FFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrunYorum.Base", "UrunYorum.Base\UrunYorum.Base.csproj", "{EB6BCDE7-4853-44B1-A1BF-DFE584CC8FD1}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = UrunYorum.vsmdi
@@ -53,9 +57,16 @@ Global
 		{53EC4548-28A1-41EF-A78B-EDD9ABFA86DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53EC4548-28A1-41EF-A78B-EDD9ABFA86DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53EC4548-28A1-41EF-A78B-EDD9ABFA86DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB6BCDE7-4853-44B1-A1BF-DFE584CC8FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB6BCDE7-4853-44B1-A1BF-DFE584CC8FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB6BCDE7-4853-44B1-A1BF-DFE584CC8FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB6BCDE7-4853-44B1-A1BF-DFE584CC8FD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2C967AF4-A897-4A5B-B6C6-452C33470FFF} = {C62FC242-DE4F-47C5-89B7-709C7CB2437B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35;packages\EnterpriseLibrary.ExceptionHandling.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.ExceptionHandling.Logging.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Validation.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35

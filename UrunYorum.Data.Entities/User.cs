@@ -13,9 +13,9 @@ namespace UrunYorum.Data.Entities
         public Guid UserId { get; set; }
 
         public string Name { get; set; }
-        public Guid? Country { get; set; }
-        public Guid? City { get; set; }
-        public Guid? Town { get; set; }
+        public Guid? CountryId { get; set; }
+        public Guid? CityId { get; set; }
+        public Guid? TownId { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
 
@@ -24,5 +24,9 @@ namespace UrunYorum.Data.Entities
 
         [DataType(DataType.DateTime)]
         public DateTime? LastSeenDate { get; set; }
+
+        public virtual City City { get; set; }
+        public virtual Town Town { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

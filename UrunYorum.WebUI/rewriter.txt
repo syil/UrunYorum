@@ -1,0 +1,13 @@
+RewriteEngine On
+#RewriteLog "rewrite.log"
+#RewriteLogLevel 9
+
+RouteIgnoreUrl {resource}.axd/{*pathInfo}
+
+RouteDefault controller Product
+RouteDefault action Details
+RouteUrl product/{slug} "ProductDetail"
+
+RouteDefault controller Product
+RouteDefault action ListByCategory
+RouteUrl category/{slug} "CategoryProducts"

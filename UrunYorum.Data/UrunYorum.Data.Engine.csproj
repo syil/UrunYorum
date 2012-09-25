@@ -47,11 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityTypeConfigurations\CategoryConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\CityConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\LoginConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\ProductConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\ProductPictureConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\RatingConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\ReviewConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\TownConfiguration.cs" />
     <Compile Include="Infrastructure\DbContextFactory.cs" />
     <Compile Include="Infrastructure\EntityRepository.cs" />
     <Compile Include="Infrastructure\IDbContextFactory.cs" />
@@ -59,26 +61,33 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="IRepositories\ICategoryRepository.cs" />
+    <Compile Include="IRepositories\ITownRepository.cs" />
+    <Compile Include="IRepositories\ICountryRepository.cs" />
+    <Compile Include="IRepositories\ICityRepository.cs" />
     <Compile Include="IRepositories\IManufacturerRepository.cs" />
     <Compile Include="IRepositories\IProductRepository.cs" />
     <Compile Include="IRepositories\IRouteMapRepository.cs" />
     <Compile Include="IRepositories\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\CityRepository.cs" />
+    <Compile Include="Repositories\CountryRepository.cs" />
     <Compile Include="Repositories\ManufacturerRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\RouteMapRepository.cs" />
+    <Compile Include="Repositories\TownRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="UrunYorumDataContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\UrunYorum.Core\UrunYorum.Core.csproj">
-      <Project>{F33D509A-796D-4D6D-8F0B-D5A455AFFA23}</Project>
-      <Name>UrunYorum.Core</Name>
+    <ProjectReference Include="..\UrunYorum.Base\UrunYorum.Base.csproj">
+      <Project>{EB6BCDE7-4853-44B1-A1BF-DFE584CC8FD1}</Project>
+      <Name>UrunYorum.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\UrunYorum.Data.Entities\UrunYorum.Data.Entities.csproj">
       <Project>{53EC4548-28A1-41EF-A78B-EDD9ABFA86DD}</Project>

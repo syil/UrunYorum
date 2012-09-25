@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="Enums\UserProvider.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Manufacturer.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="Rating.cs" />
     <Compile Include="Review.cs" />
     <Compile Include="RouteMap.cs" />
+    <Compile Include="Town.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

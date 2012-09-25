@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UrunYorum.Data.Engine.Repositories;
 using UrunYorum.Data.Contractor;
 using UrunYorum.Data.Entities;
-using UrunYorum.Core.Utilities;
+using UrunYorum.Base.Utilities;
 
 namespace UrunYorum.Test.DatabaseObjectTests
 {

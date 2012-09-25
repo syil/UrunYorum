@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Microsoft.Practices.Unity;
-using UrunYorum.Data.Engine.Infrastructure;
-using UrunYorum.IoC;
-using System.Data.Entity;
+using UrunYorum.Core.IoC;
+using UrunYorum.Data.Contractor;
+using UrunYorum.Data.Contractor.IServices;
 using UrunYorum.Data.Engine;
+using UrunYorum.Data.Engine.Infrastructure;
 using UrunYorum.Data.Engine.IRepositories;
 using UrunYorum.Data.Engine.Repositories;
-using UrunYorum.Data.Contractor.IServices;
-using UrunYorum.Data.Contractor;
 
 namespace UrunYorum
 {
-    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
-    // visit http://go.microsoft.com/?LinkId=9394801
-
     public class MvcApplication : HttpApplication
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -28,25 +22,7 @@ namespace UrunYorum
 
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            //routes.MapRoute(
-            //    "Default", // Route name
-            //    "{controller}/{action}/{id}", // URL with parameters
-            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-            //);
-
-            routes.MapRoute(
-                "ProductDetail",
-                "product/{slug}",
-                new { Controller = "Product", Action = "Details" }
-            );
-
-            routes.MapRoute(
-                "CategoryProducts",
-                "category/{slug}",
-                new { Controller = "Product", Action = "ListByCategory" }
-            );
+            
         }
 
         protected void Application_Start()

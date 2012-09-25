@@ -4,14 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UrunYorum.Data.Engine.Repositories;
+using UrunYorum.Core;
+using UrunYorum.Data.Contractor;
 
 namespace UrunYorum.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private ProductRepository productsRepository;
 
-        public HomeController(ProductRepository productsRepository)
+        public HomeController(ProductRepository productsRepository, RouteMapDataService routeMapDataService)
+            : base(routeMapDataService)
         {
             this.productsRepository = productsRepository;
         }

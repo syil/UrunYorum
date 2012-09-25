@@ -5,7 +5,7 @@ using System.Text;
 using UrunYorum.Data.Engine.IRepositories;
 using UrunYorum.Data.Entities;
 using UrunYorum.Data.Engine.Infrastructure;
-using UrunYorum.Core.Exceptions;
+using UrunYorum.Base.Exceptions;
 
 namespace UrunYorum.Data.Engine.Repositories
 {
@@ -21,18 +21,7 @@ namespace UrunYorum.Data.Engine.Repositories
         {
             RouteMap routeMap = Get(r => r.Slug == slug && r.ItemType == itemType);
 
-            if (routeMap != null)
-            {
-                return routeMap;
-            }
-            else
-            {
-                throw new RouteMapCannotResolvedException()
-                {
-                    RequestedSlug = slug,
-                    RequestedType = itemType
-                };
-            }
+            return routeMap;
         }
     }
 }

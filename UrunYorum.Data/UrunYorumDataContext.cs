@@ -26,6 +26,9 @@ namespace UrunYorum.Data.Engine
         public DbSet<User> Users { get; set; }
         public DbSet<Login> Logins { get; set; }
         public DbSet<RouteMap> RouteMaps { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Town> Towns { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -35,6 +38,8 @@ namespace UrunYorum.Data.Engine
             modelBuilder.Configurations.Add(new ReviewConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
             modelBuilder.Configurations.Add(new LoginConfiguration());
+            modelBuilder.Configurations.Add(new CityConfiguration());
+            modelBuilder.Configurations.Add(new TownConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -17,6 +17,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
         private ProductDataService dataService;
 
         private ManufacturerRepository manufacturerRepository;
+        private CategoryRepository categoryRepository;
         private UserRepository userRepository;
 
         public ProductDboTest()
@@ -24,6 +25,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
             repository = new ProductRepository(DbContextFactory);
             manufacturerRepository = new ManufacturerRepository(DbContextFactory);
             userRepository = new UserRepository(DbContextFactory);
+            categoryRepository = new CategoryRepository(DbContextFactory);
 
             dataService  = new ProductDataService(repository, UnitOfWork);
         }
@@ -49,6 +51,21 @@ namespace UrunYorum.Test.DatabaseObjectTests
             dataService.Save();
 
             Assert.IsNotNull(newEntity.ProductId);
+        }
+
+        [TestMethod]
+        public void AssignCategoryTest()
+        {
+            Category category = categoryRepository.All.OrderBy(c => Guid.NewGuid()).FirstOrDefault();
+            Product product = dataService.All.OrderBy(p => Guid.NewGuid()).FirstOrDefault();
+            int assignedCategoryCount = product.Categories.Count;
+
+            product.Categories.Add(category);
+
+            dataService.Update(product);
+            dataService.Save();
+
+            Assert.AreNotEqual(assignedCategoryCount, product.Categories.Count);
         }
     }
 }

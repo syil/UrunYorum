@@ -50,6 +50,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseObjectTests\CategoryDboTest.cs" />
     <Compile Include="DatabaseObjectTests\DboTestBase.cs" />
     <Compile Include="DatabaseObjectTests\ManufacturerDboTest.cs" />
     <Compile Include="DatabaseObjectTests\ProductDboTest.cs" />
@@ -58,6 +59,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UrunYorum.Base\UrunYorum.Base.csproj">
+      <Project>{EB6BCDE7-4853-44B1-A1BF-DFE584CC8FD1}</Project>
+      <Name>UrunYorum.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UrunYorum.Core\UrunYorum.Core.csproj">
       <Project>{F33D509A-796D-4D6D-8F0B-D5A455AFFA23}</Project>
       <Name>UrunYorum.Core</Name>

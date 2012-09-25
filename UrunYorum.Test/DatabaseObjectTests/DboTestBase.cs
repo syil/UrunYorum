@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UrunYorum.Data.Engine.Infrastructure;
-using UrunYorum.Core.Utilities;
+using UrunYorum.Base.Utilities;
 
 namespace UrunYorum.Test.DatabaseObjectTests
 {

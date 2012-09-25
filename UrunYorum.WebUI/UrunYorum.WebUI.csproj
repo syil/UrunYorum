@@ -38,6 +38,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="ManagedFusion.Rewriter">
+      <HintPath>..\packages\ManagedFusion.Rewriter.3.5.36\lib\net35\ManagedFusion.Rewriter.dll</HintPath>
+    </Reference>
+    <Reference Include="ManagedFusion.Rewriter.Contrib">
+      <HintPath>..\packages\ManagedFusion.Rewriter.Contrib.1.0.24\lib\net35\ManagedFusion.Rewriter.Contrib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
       <HintPath>..\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
@@ -98,9 +104,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IoC\HttpContextLifetimeManager.cs" />
-    <Compile Include="IoC\UnityControllerFactory.cs" />
-    <Compile Include="IoC\UnityDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +163,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="rewriter.txt" />
     <Content Include="Scripts\jquery-1.8.0-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -202,6 +206,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UrunYorum.Base\UrunYorum.Base.csproj">
+      <Project>{EB6BCDE7-4853-44B1-A1BF-DFE584CC8FD1}</Project>
+      <Name>UrunYorum.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UrunYorum.Core\UrunYorum.Core.csproj">
       <Project>{F33D509A-796D-4D6D-8F0B-D5A455AFFA23}</Project>
       <Name>UrunYorum.Core</Name>
@@ -221,12 +229,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Product\Add.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Product\Details.cshtml" />
