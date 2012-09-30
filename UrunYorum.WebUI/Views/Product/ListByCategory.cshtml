@@ -1,96 +1,12 @@
-﻿@model IEnumerable<UrunYorum.Data.Entities.Product>
+﻿@using UrunYorum.Core;
+@using UrunYorum.Data.Entities;
+@model IEnumerable<UrunYorum.Data.Entities.Product>
 
 @{
-    ViewBag.Title = "ListByCategory";
+    this.SetTitle("");
 }
 
-<h2>@ViewBag.slug Kategorisi</h2>
-
-<table>
-    <tr>
-        <th>
-            ProductName
-        </th>
-        <th>
-            IsApporoved
-        </th>
-        <th>
-            IsDeleted
-        </th>
-        <th>
-            ManufacturingYear
-        </th>
-        <th>
-            ShortDescription
-        </th>
-        <th>
-            MetaKeywords
-        </th>
-        <th>
-            SumRating
-        </th>
-        <th>
-            ManufacturerId
-        </th>
-        <th>
-            AddedById
-        </th>
-        <th>
-            UpdateDate
-        </th>
-        <th>
-            FullDescription
-        </th>
-        <th>
-            InsertDate
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsApporoved)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDeleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ManufacturingYear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MetaKeywords)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SumRating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ManufacturerId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddedById)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InsertDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
-        </td>
-    </tr>
+@foreach (Product product in Model) 
+{
+    @Html.Partial("../Product/ListItem", product)
 }
-
-</table>

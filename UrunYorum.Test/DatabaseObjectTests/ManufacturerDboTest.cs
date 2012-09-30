@@ -7,6 +7,7 @@ using UrunYorum.Data.Engine.Repositories;
 using UrunYorum.Data.Contractor;
 using UrunYorum.Data.Entities;
 using UrunYorum.Base;
+using UrunYorum.Base.Utilities;
 
 namespace UrunYorum.Test.DatabaseObjectTests
 {
@@ -38,6 +39,32 @@ namespace UrunYorum.Test.DatabaseObjectTests
             dataService.Save();
 
             Assert.IsNotNull(newEntity.ManufacturerId);
+        }
+
+        [TestMethod]
+        public void AddRouteMapForManufacturer()
+        {
+            Manufacturer manufacturer = repository.GetMany(m => m.RouteMapInfo == null).OrderBy(m => Guid.NewGuid()).FirstOrDefault();
+
+            if (manufacturer != null)
+            {
+                RouteMap newEntity = new RouteMap();
+                newEntity.InsertDate = DateTime.Now;
+                newEntity.ItemType = typeof(Manufacturer).FullName;
+                newEntity.ItemId = manufacturer.ManufacturerId;
+                newEntity.Slug = "{0}".FormatWith(StringOperations.UrlFriendlyString(manufacturer.Name));
+
+                manufacturer.RouteMapInfo = newEntity;
+
+                dataService.Update(manufacturer);
+                dataService.Save();
+
+                Assert.IsNotNull(newEntity.RouteMapId);
+            }
+            else
+            {
+                Assert.Inconclusive("Rota atanacak üretici bilgisi kalmadı");
+            }
         }
     }
 }

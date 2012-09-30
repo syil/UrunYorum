@@ -11,18 +11,8 @@ namespace UrunYorum.Controllers
 {
     public class HomeController : BaseController
     {
-        private ProductRepository productsRepository;
-
-        public HomeController(ProductRepository productsRepository, RouteMapDataService routeMapDataService)
-            : base(routeMapDataService)
-        {
-            this.productsRepository = productsRepository;
-        }
-
         public ActionResult Index()
         {
-            productsRepository.All.FirstOrDefault();
-
             return View();
         }
 

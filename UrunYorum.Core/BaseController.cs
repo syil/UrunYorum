@@ -7,23 +7,20 @@ using UrunYorum.Data.Contractor;
 using UrunYorum.Data.Contractor.IServices;
 using UrunYorum.Data.Entities;
 using UrunYorum.Base.Exceptions;
+using Microsoft.Practices.Unity;
 
 namespace UrunYorum.Core
 {
     public class BaseController : Controller
     {
-        private RouteMapDataService routeMapDataService;
-
-        public BaseController(RouteMapDataService routeMapDataService)
-        {
-            this.routeMapDataService = routeMapDataService;
-        }
+        [Dependency]
+        public IRouteMapDataService RouteMapDataService { get; set; }
 
         protected Guid GetMappedId(string slug, Type entityType)
         {
             try
             {
-                RouteMap routeMap = routeMapDataService.ResolveRoute(slug, entityType.FullName);
+                RouteMap routeMap = RouteMapDataService.ResolveRoute(slug, entityType.FullName);
 
                 return routeMap.ItemId;
             }

@@ -1,0 +1,11 @@
+﻿@using UrunYorum.Core;
+@using UrunYorum.Data.Entities;
+@model Review
+
+<article>
+    <strong>@Model.User.Name:</strong> 
+    <small>@Model.InsertDate.ToString("g")</small>
+    <p>
+        @Model.ReviewText
+    </p>
+</article>

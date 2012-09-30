@@ -44,9 +44,9 @@ namespace UrunYorum.Data.Contractor.Base
         {
             return repository.GetMany(where);
         }
-        public TEntity Get(Func<TEntity, Boolean> where)
+        public TEntity Find(Func<TEntity, Boolean> where)
         {
-            return repository.Get(where);
+            return repository.Find(where);
         }
 
 
@@ -55,9 +55,9 @@ namespace UrunYorum.Data.Contractor.Base
             return repository.AllIncluding(includeProperties);
         }
 
-        public TEntity Find(Guid id)
+        public TEntity Get(Guid id)
         {
-            return repository.Find(id);
+            return repository.Get(id);
         }
 
         public void Update(TEntity entity)
@@ -68,7 +68,7 @@ namespace UrunYorum.Data.Contractor.Base
 
         public void Delete(Guid id)
         {
-            var entity = repository.Find(id);
+            var entity = repository.Get(id);
             repository.Delete(entity);
         }
 

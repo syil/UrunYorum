@@ -8,6 +8,10 @@ RouteDefault controller Product
 RouteDefault action Details
 RouteUrl product/{slug} "ProductDetail"
 
-RouteDefault controller Product
-RouteDefault action ListByCategory
-RouteUrl category/{slug} "CategoryProducts"
+RouteDefault controller Category
+RouteDefault action Details
+RouteUrl category/{slug} "CategoryDetail"
+
+RouteDefault controller Home
+RouteDefault action Index
+RouteUrl {controller}/{action}/{slug} "Default"

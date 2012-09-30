@@ -34,7 +34,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
             dataService.Insert(newEntity);
             dataService.Save();
 
-            Assert.IsNotNull(newEntity.UserId);
+            Assert.AreNotEqual(Guid.Empty, newEntity.UserId);
         }
     }
 }

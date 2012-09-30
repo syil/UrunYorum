@@ -10,7 +10,7 @@ namespace UrunYorum.Data.Entities
     public class Town
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Townd { get; set; }
+        public Guid TownId { get; set; }
 
         public string Name { get; set; }
         public Guid CityId { get; set; }

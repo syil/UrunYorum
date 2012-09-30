@@ -7,22 +7,19 @@ using UrunYorum.Data.Entities;
 using UrunYorum.Data.Engine.Repositories;
 using UrunYorum.Data.Contractor;
 using UrunYorum.Core;
+using UrunYorum.Data.Contractor.IServices;
+using Microsoft.Practices.Unity;
 
 namespace UrunYorum.Controllers
 {
     public class ProductController : BaseController
     {
-        private ProductDataService productDataService;
-
-        public ProductController(ProductDataService productsDataService, RouteMapDataService routeMapDataService)
-            : base(routeMapDataService)
-	    {
-            this.productDataService = productsDataService;
-        }
-
+        [Dependency]
+        public IProductDataService ProductDataService { get; set; }
+        
         public ViewResult Index()
         {
-            return View(productDataService.All);
+            return View(ProductDataService.All);
         }
 
         public ActionResult Details(string slug)
@@ -32,30 +29,39 @@ namespace UrunYorum.Controllers
             try
             {
                 Guid productId = GetMappedId(slug, typeof(Product));
-                product = productDataService.Find(productId);
+                product = ProductDataService.Get(productId);
+
+                return View(product);
             }
             catch (Exception exc)
             {
                 ViewData.ModelState.AddModelError("ModelErrors", exc.Message);
-            }
 
-            return View(product);
+                return View();
+            }
         }
 
-        public ActionResult ListByCategory(string slug)
+        [ChildActionOnly]
+        public PartialViewResult ListByCategory(Guid uid)
         {
-            List<Product> categoryProducts = null;
+            return PartialView();
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult ListItem(Guid uid)
+        {
+            Product product = null;
+
             try
             {
-                Guid categoryId = GetMappedId(slug, typeof(Category));
-                categoryProducts = productDataService.GetMany(p => p.Categories.Exists(c => c.CategoryId == categoryId)).ToList();
+                product = ProductDataService.Get(uid);
             }
-            catch (Exception exc)
+            catch (Exception)
             {
-                ViewData.ModelState.AddModelError("ModelErrors", exc.Message);
+                throw;
             }
 
-            return View(categoryProducts);
+            return PartialView(product);
         }
     }
 }

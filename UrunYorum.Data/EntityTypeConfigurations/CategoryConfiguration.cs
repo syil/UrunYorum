@@ -14,6 +14,9 @@ namespace UrunYorum.Data.Engine.EntityTypeConfigurations
             HasOptional(c => c.ParentCategory)
                 .WithMany(c => c.SubCategories)
                 .HasForeignKey(c => c.ParentCategoryId);
+
+            HasRequired(c => c.RouteMapInfo)
+                .WithRequiredPrincipal(r => r.Category);
         }
     }
 }

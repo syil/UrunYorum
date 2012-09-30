@@ -1,0 +1,9 @@
+﻿@using UrunYorum.Data.Entities;
+@using UrunYorum.Core;
+@using UrunYorum.Base.Enums;
+@model Product
+
+<div class="product-list-item">
+    <h4>@Model.Manufacturer.Name @Html.CreateLink(Model.RouteMapInfo.Slug, Model.ProductName, LinkType.ProductDetail)</h4>
+    <p class="short-description">@Model.ShortDescription</p>
+</div>

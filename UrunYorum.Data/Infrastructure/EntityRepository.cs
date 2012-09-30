@@ -38,7 +38,7 @@ namespace UrunYorum.Data.Engine.Infrastructure
         {
             return dbset.Where(where).ToList();
         }
-        public TEntity Get(Func<TEntity, Boolean> where)
+        public TEntity Find(Func<TEntity, Boolean> where)
         {
             return dbset.Where(where).FirstOrDefault<TEntity>();
         }
@@ -54,7 +54,7 @@ namespace UrunYorum.Data.Engine.Infrastructure
             return query;
         }
 
-        public TEntity Find(Guid id)
+        public TEntity Get(Guid id)
         {
             return dbset.Find(id);
         }

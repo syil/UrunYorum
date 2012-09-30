@@ -27,6 +27,9 @@ namespace UrunYorum.Data.Engine.EntityTypeConfigurations
             HasRequired(p => p.AddedBy)
                 .WithMany()
                 .HasForeignKey(p => p.AddedById);
+
+            HasRequired(p => p.RouteMapInfo)
+               .WithRequiredPrincipal(r => r.Product);
         }
     }
 }

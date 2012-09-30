@@ -31,6 +31,7 @@ namespace UrunYorum.Data.Entities
         [DataType(DataType.DateTime)]
         public DateTime InsertDate { get; set; }
 
+        public virtual RouteMap RouteMapInfo { get; set; }
         public virtual User AddedBy { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
         public virtual List<ProductPicture> ProductPictures { get; set; }

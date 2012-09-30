@@ -17,6 +17,7 @@ namespace UrunYorum.Data.Entities
         public bool IsActive { get; set; }
         public Guid? ParentCategoryId { get; set; }
 
+        public virtual RouteMap RouteMapInfo { get; set; }
         public virtual Category ParentCategory { get; set; }
         public virtual List<Category> SubCategories { get; set; }
         public virtual List<Product> Products { get; set; }

@@ -1,0 +1,12 @@
+﻿@using UrunYorum.Data.Entities;
+@using UrunYorum.Core;
+@using UrunYorum.Base.Enums;
+@model Category
+
+@{
+    this.SetTitle(Model.Name);
+}
+
+<h2>@Model.Name</h2>
+
+@Html.Partial("../Product/ListByCategory", Model.Products)

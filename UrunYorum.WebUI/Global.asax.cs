@@ -15,6 +15,8 @@ namespace UrunYorum
 {
     public class MvcApplication : HttpApplication
     {
+        private static IUnityContainer container;
+
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -32,15 +34,19 @@ namespace UrunYorum
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
 
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<UrunYorumDataContext>());
+            Database.SetInitializer(new UrunYorumDbInitializer());
 
-            IUnityContainer container = CreateUnityContainer();
+            InitContainer();
+            //ControllerBuilder.Current.SetControllerFactory(new UnityControllerFactory());
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
 
-        private IUnityContainer CreateUnityContainer()
+        private void InitContainer()
         {
-            IUnityContainer container = new UnityContainer();
+            if (container == null)
+            {
+                container = new UnityContainer();
+            }
 
             container.RegisterType<IDbContextFactory, DbContextFactory>(new HttpContextLifetimeManager<IDbContextFactory>());
             container.RegisterType<IUnitOfWork, UnitOfWork>(new HttpContextLifetimeManager<IUnitOfWork>());
@@ -54,10 +60,14 @@ namespace UrunYorum
             container.RegisterType<IManufacturerRepository, ManufacturerRepository>(new HttpContextLifetimeManager<IManufacturerRepository>());
             container.RegisterType<IManufacturerDataService, ManufacturerDataService>(new HttpContextLifetimeManager<IManufacturerRepository>());
 
+            container.RegisterType<ICategoryRepository, CategoryRepository>(new HttpContextLifetimeManager<ICategoryRepository>());
+            container.RegisterType<ICategoryDataService, CategoryDataService>(new HttpContextLifetimeManager<ICategoryRepository>());
+
             container.RegisterType<IRouteMapRepository, RouteMapRepository>(new HttpContextLifetimeManager<IRouteMapRepository>());
             container.RegisterType<IRouteMapDataService, RouteMapDataService>(new HttpContextLifetimeManager<IRouteMapRepository>());
 
-            return container;
+            container.RegisterType<IReviewRepository, ReviewRepository>(new HttpContextLifetimeManager<IReviewRepository>());
+            container.RegisterType<IReviewDataService, ReviewDataService>(new HttpContextLifetimeManager<IReviewRepository>());
         }
     }
 }

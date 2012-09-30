@@ -8,6 +8,7 @@ using UrunYorum.Data.Engine.Repositories;
 using UrunYorum.Data.Engine.Infrastructure;
 using UrunYorum.Data.Entities;
 using UrunYorum.Base;
+using UrunYorum.Base.Utilities;
 
 namespace UrunYorum.Test.DatabaseObjectTests
 {
@@ -43,15 +44,15 @@ namespace UrunYorum.Test.DatabaseObjectTests
             newEntity.InsertDate = DateTime.Now;
             newEntity.IsApporoved = true;
             newEntity.IsDeleted = false;
-            newEntity.ShortDescription = GetRandomString(6);
+            newEntity.ShortDescription = GetRandomString(GetRandom(3,5));
             newEntity.ProductName = "Ürün {0}".FormatWith(GetRandom());
-            newEntity.FullDescription = GetRandomString(26);
+            newEntity.FullDescription = GetRandomString(GetRandom(10,25));
             newEntity.ManufacturingYear = GetRandom(2008, 2012);
 
             dataService.Insert(newEntity);
             dataService.Save();
 
-            Assert.IsNotNull(newEntity.ProductId);
+            Assert.AreNotEqual(Guid.Empty, newEntity.ProductId);
         }
 
         [TestMethod]
@@ -67,6 +68,32 @@ namespace UrunYorum.Test.DatabaseObjectTests
             dataService.Save();
 
             Assert.AreNotEqual(assignedCategoryCount, product.Categories.Count);
+        }
+
+        [TestMethod]
+        public void AddRouteMapForProduct()
+        {
+            Product product = repository.GetMany(p => p.RouteMapInfo == null).OrderBy(p => Guid.NewGuid()).FirstOrDefault();
+
+            if (product != null)
+            {
+                RouteMap newEntity = new RouteMap();
+                newEntity.InsertDate = DateTime.Now;
+                newEntity.ItemType = typeof(Product).FullName;
+                newEntity.ItemId = product.ProductId;
+                newEntity.Slug = "{0}-{1}".FormatWith(StringOperations.UrlFriendlyString(product.ProductName), StringOperations.GetRandomString(2));
+
+                product.RouteMapInfo = newEntity;
+
+                dataService.Update(product);
+                dataService.Save();
+
+                Assert.AreNotEqual(Guid.Empty, newEntity.RouteMapId); 
+            }
+            else
+            {
+                Assert.Inconclusive("Rota atanacak ürün bilgisi kalmadı");
+            }
         }
     }
 }

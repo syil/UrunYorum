@@ -24,7 +24,7 @@ namespace UrunYorum.Data.Entities
         [DataType(DataType.DateTime)]
         public DateTime? UpdateDate { get; set; }
 
-
+        public virtual RouteMap RouteMapInfo { get; set; }
         public virtual List<Product> Products { get; set; }
     }
 }

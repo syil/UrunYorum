@@ -1,0 +1,207 @@
+﻿.left
+{
+    float: left;
+}
+
+.right
+{
+    float: right;
+}
+
+.clear
+{
+    clear: both;
+    display: block;
+}
+
+.space
+{
+    clear: both;
+    display: block;
+    height: 2em;
+}
+
+.small-space
+{
+    clear: both;
+    display: block;
+    height: 1em;
+}
+
+.vertical-space
+{
+    width: 30px;
+    height: 1px;
+    clear: none;
+    display: inline-block;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.unvisible
+{
+    visibility: hidden;
+}
+
+.full-size
+{
+    width: 100%;
+    height: 100%;
+}
+
+.full-width, div.full-width
+{
+    width: 100%;
+}
+
+.small
+{
+    font-size: .82em;
+}
+
+.smallest
+{
+    font-size: .70em;
+}
+
+.big
+{
+    font-size: 1.2em;
+}
+
+.margin
+{
+    margin: 5px;
+}
+
+.two-column
+{
+    float: left;
+    width: 50%;
+    clear: none;
+}
+
+.three-column
+{
+    float: left;
+    width: 33.33%;
+    clear: none;
+}
+
+.align-left
+{
+    text-align: left;
+}
+
+.align-right
+{
+    text-align: right;
+}
+
+.align-center
+{
+    text-align: center;
+}
+
+table .align-top
+{
+    vertical-align: top;
+}
+
+table .align-middle
+{
+    vertical-align: middle;
+}
+
+table .align-bottom
+{
+    vertical-align: bottom;
+}
+
+/* Position Classes */
+.container
+{
+    position: relative;
+}
+
+.top-left, .middle-left, .bottom-left, .top-center, .middle-center, .bottom-center, .top-right, .middle-right, .bottom-right
+{
+    position: absolute;
+    display: block;
+}
+
+.top-left, middle-left, .bottom-left
+{
+    left: 0;
+    margin-right: 0 !important;
+}
+
+.top-center, .middle-center, .bottom-center
+{
+    left: 50%;
+}
+
+.top-right, .middle-right, .bottom-rigth
+{
+    right: 0;
+    margin-left: 0 !important;
+}
+
+.top-left, .top-center, .top-right
+{
+    top: 0;
+    margin-bottom: 0 !important;
+}
+
+.middle-left, .middle-center, .middle-right
+{
+    top: 50%;
+}
+
+.bottom-left, .bottom-center, .bottom-right
+{
+    bottom: 0;
+    margin-top: 0 !important;
+}
+
+.box
+{
+    border: 1px solid;
+    padding: 1em;
+    clear: both;
+    overflow: auto;
+}
+
+p.description, div.description
+{
+    border: 1px solid;
+    padding: 10px 15px;
+}
+
+.border-top
+{
+    border-top: 1px solid;
+}
+
+.border-left
+{
+    border-left: 1px solid;
+}
+
+.border-bottom
+{
+    border-bottom: 1px solid;
+}
+
+.border-right
+{
+    border-right: 1px solid;
+}
+
+.border-all
+{
+    border: 1px solid;
+}

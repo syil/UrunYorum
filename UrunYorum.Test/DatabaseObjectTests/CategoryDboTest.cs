@@ -38,7 +38,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
             dataService.Insert(newEntity);
             dataService.Save();
 
-            Assert.IsNotNull(newEntity.CategoryId);
+            Assert.AreNotEqual(Guid.Empty, newEntity.CategoryId);
         }
 
         [TestMethod]
@@ -55,7 +55,33 @@ namespace UrunYorum.Test.DatabaseObjectTests
             dataService.Insert(newEntity);
             dataService.Save();
 
-            Assert.IsNotNull(newEntity.CategoryId);
+            Assert.AreNotEqual(Guid.Empty, newEntity.CategoryId);
+        }
+
+        [TestMethod]
+        public void AddRouteMapForCategory()
+        {
+            Category category = repository.GetMany(c => c.RouteMapInfo == null).OrderBy(c => Guid.NewGuid()).FirstOrDefault();
+
+            if (category != null)
+            {
+                RouteMap newEntity = new RouteMap();
+                newEntity.InsertDate = DateTime.Now;
+                newEntity.ItemType = typeof(Category).FullName;
+                newEntity.ItemId = category.CategoryId;
+                newEntity.Slug = StringOperations.UrlFriendlyString(category.Name);
+
+                category.RouteMapInfo = newEntity;
+
+                dataService.Update(category);
+                dataService.Save();
+
+                Assert.AreNotEqual(Guid.Empty, newEntity.RouteMapId); 
+            }
+            else
+            {
+                Assert.Inconclusive("Rota atanacak kategori bilgisi kalmadı");
+            }
         }
     }
 }

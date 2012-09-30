@@ -1,0 +1,18 @@
+﻿@using UrunYorum.Data.Entities;
+@using UrunYorum.Core;
+@using UrunYorum.Base.Enums;
+@model IEnumerable<Category>
+
+<ul id="category-menu">
+@foreach (Category item in Model) {
+    <li>@Html.CreateLink(item.RouteMapInfo.Slug, item.Name, LinkType.CategoryDetail)
+        @if(item.SubCategories.Count > 0){
+            <ul>
+                @foreach(Category subItem in item.SubCategories){
+                   <li>@Html.CreateLink(subItem.RouteMapInfo.Slug, subItem.Name, LinkType.CategoryDetail)</li>
+                }
+            </ul>
+        }
+    </li>
+}
+</ul>

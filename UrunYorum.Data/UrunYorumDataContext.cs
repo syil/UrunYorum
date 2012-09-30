@@ -14,7 +14,6 @@ namespace UrunYorum.Data.Engine
         public UrunYorumDataContext()
             : base(SystemConstants.ConnectionStringName)
         {
-
         }
 
         public DbSet<Product> Products { get; set; }
@@ -40,6 +39,8 @@ namespace UrunYorum.Data.Engine
             modelBuilder.Configurations.Add(new LoginConfiguration());
             modelBuilder.Configurations.Add(new CityConfiguration());
             modelBuilder.Configurations.Add(new TownConfiguration());
+            modelBuilder.Configurations.Add(new RouteMapConfiguration());
+            modelBuilder.Configurations.Add(new ManufacturerConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

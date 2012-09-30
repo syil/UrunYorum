@@ -24,5 +24,9 @@ namespace UrunYorum.Data.Entities
 
         [DataType(DataType.DateTime)]
         public DateTime? LastRouteDate { get; set; }
+
+        public virtual Category Category { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Manufacturer Manufacturer { get; set; }
     }
 }

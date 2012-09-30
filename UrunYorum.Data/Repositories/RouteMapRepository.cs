@@ -19,7 +19,7 @@ namespace UrunYorum.Data.Engine.Repositories
 
         public RouteMap ResolveRoute(string slug, string itemType)
         {
-            RouteMap routeMap = Get(r => r.Slug == slug && r.ItemType == itemType);
+            RouteMap routeMap = Find(r => r.Slug == slug && r.ItemType == itemType);
 
             return routeMap;
         }

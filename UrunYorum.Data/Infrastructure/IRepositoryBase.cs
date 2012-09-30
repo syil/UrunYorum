@@ -11,8 +11,8 @@ namespace UrunYorum.Data.Engine.Infrastructure
         IEnumerable<TEntity> GetMany(Func<TEntity, bool> where);
         IQueryable<TEntity> AllIncluding(params Expression<Func<TEntity, object>>[] includeProperties);
 
-        TEntity Find(Guid id);
-        TEntity Get(Func<TEntity, Boolean> where);
+        TEntity Get(Guid id);
+        TEntity Find(Func<TEntity, Boolean> where);
 
         void Insert(TEntity entity);
         void Update(TEntity products);

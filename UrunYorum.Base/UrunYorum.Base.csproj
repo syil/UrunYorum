@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Disposable.cs" />
+    <Compile Include="Enums\LinkType.cs" />
     <Compile Include="Enums\SiteLanguage.cs" />
     <Compile Include="Exceptions\NonFatalException.cs" />
     <Compile Include="Exceptions\RouteMapCannotResolvedException.cs" />
@@ -70,6 +71,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Strings.tr.resx" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

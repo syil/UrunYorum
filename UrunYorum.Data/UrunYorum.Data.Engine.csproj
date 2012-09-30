@@ -49,11 +49,14 @@
     <Compile Include="EntityTypeConfigurations\CategoryConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\CityConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\LoginConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\ManufacturerConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\ProductConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\ProductPictureConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\RatingConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\ReviewConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\RouteMapConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\TownConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\UserConfiguration.cs" />
     <Compile Include="Infrastructure\DbContextFactory.cs" />
     <Compile Include="Infrastructure\EntityRepository.cs" />
     <Compile Include="Infrastructure\IDbContextFactory.cs" />
@@ -62,6 +65,7 @@
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="IRepositories\ICategoryRepository.cs" />
+    <Compile Include="IRepositories\IReviewRepository.cs" />
     <Compile Include="IRepositories\ITownRepository.cs" />
     <Compile Include="IRepositories\ICountryRepository.cs" />
     <Compile Include="IRepositories\ICityRepository.cs" />
@@ -75,10 +79,12 @@
     <Compile Include="Repositories\CountryRepository.cs" />
     <Compile Include="Repositories\ManufacturerRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ReviewRepository.cs" />
     <Compile Include="Repositories\RouteMapRepository.cs" />
     <Compile Include="Repositories\TownRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="UrunYorumDataContext.cs" />
+    <Compile Include="UrunYorumDbInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
