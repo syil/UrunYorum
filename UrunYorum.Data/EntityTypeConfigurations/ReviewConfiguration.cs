@@ -11,14 +11,14 @@ namespace UrunYorum.Data.Engine.EntityTypeConfigurations
     {
         public ReviewConfiguration()
         {
-            HasRequired(r => r.User)
-               .WithMany()
-               .HasForeignKey(r => r.UserId)
-               .WillCascadeOnDelete(false);
-
             HasRequired(r => r.Product)
                 .WithMany(p => p.Reviews)
-                .HasForeignKey(r => r.ProductId);
+                .HasForeignKey(r => r.ProductId)
+                .WillCascadeOnDelete(false);
+
+            HasRequired(r => r.User)
+               .WithMany()
+               .HasForeignKey(r => r.UserId);
         }
     }
 }

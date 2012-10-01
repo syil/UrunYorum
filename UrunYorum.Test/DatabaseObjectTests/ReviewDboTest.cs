@@ -50,5 +50,21 @@ namespace UrunYorum.Test.DatabaseObjectTests
 
             Assert.AreNotEqual(Guid.Empty, newEntity.ReviewId);
         }
+
+        [TestMethod]
+        public void ReadReviews()
+        {
+            List<Review> reviews = repository.All.ToList();
+
+            if (reviews.Count > 0)
+            {
+                CollectionAssert.AllItemsAreNotNull(reviews.Select(r => r.User).ToList());
+                CollectionAssert.AllItemsAreNotNull(reviews.Select(r => r.Product).ToList());
+            }
+            else
+            {
+                Assert.Inconclusive("Yorum nesnesi bulunmuyor");
+            }
+        }
     }
 }
