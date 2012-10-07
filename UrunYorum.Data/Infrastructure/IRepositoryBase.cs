@@ -8,7 +8,7 @@ namespace UrunYorum.Data.Engine.Infrastructure
 {
     public interface IRepositoryBase<TEntity> where TEntity : class
     {
-        IEnumerable<TEntity> GetMany(Func<TEntity, bool> where);
+        IEnumerable<TEntity> FindMany(Func<TEntity, bool> where);
         IQueryable<TEntity> AllIncluding(params Expression<Func<TEntity, object>>[] includeProperties);
 
         TEntity Get(Guid id);

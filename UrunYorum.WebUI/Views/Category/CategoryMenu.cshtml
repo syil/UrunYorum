@@ -5,11 +5,11 @@
 
 <ul id="category-menu">
 @foreach (Category item in Model) {
-    <li>@Html.CreateLink(item.RouteMapInfo.Slug, item.Name, LinkType.CategoryDetail)
+    <li>@Html.CreateLink(item.Name, LinkType.CategoryDetail, null, item.RouteMapInfo.Slug)
         @if(item.SubCategories.Count > 0){
             <ul>
                 @foreach(Category subItem in item.SubCategories){
-                   <li>@Html.CreateLink(subItem.RouteMapInfo.Slug, subItem.Name, LinkType.CategoryDetail)</li>
+                   <li>@Html.CreateLink(subItem.Name, LinkType.CategoryDetail, null, subItem.RouteMapInfo.Slug)</li>
                 }
             </ul>
         }

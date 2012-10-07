@@ -9,6 +9,7 @@ using UrunYorum.Base;
 using UrunYorum.Base.Utilities;
 using UrunYorum.Data.Entities;
 using System.Web.WebPages;
+using UrunYorum.Base.Interfaces;
 
 namespace UrunYorum.Core
 {
@@ -23,7 +24,7 @@ namespace UrunYorum.Core
             configurationManager = new FileConfigurationManager();
         }
 
-        public static MvcHtmlString CreateLink(this HtmlHelper htmlHelper, string slug, string text, LinkType linkType, object htmlAttributes = null)
+        public static MvcHtmlString CreateLink(this HtmlHelper htmlHelper, string text, LinkType linkType, object htmlAttributes = null, params object[] args)
         {
             string urlPattern = null;
             string anchorHtml, url;
@@ -39,11 +40,14 @@ namespace UrunYorum.Core
                 case LinkType.ManufacturerDetail:
                     urlPattern = configurationManager.GetConfigValue(SystemConstants.ManufacturerLinkPatternConfigKey) as string;
                     break;
+                case LinkType.ReviewReadMore:
+                    urlPattern = configurationManager.GetConfigValue(SystemConstants.ReviewReadMorePatternConfigKey) as string;
+                    break;
             }
 
             if (!string.IsNullOrEmpty(urlPattern))
             {
-                url = urlPattern.FormatWith(slug);
+                url = urlPattern.FormatWith(args);
                 anchorHtml = SystemConstants.AnchorTemplate.FormatWith(url, text, "");
             }
             else
@@ -66,6 +70,11 @@ namespace UrunYorum.Core
             {
                 webViewPage.ViewBag.Title = title;
             }
+        }
+
+        public static void SetTitle(this WebViewPage webViewPage, string format, params object[] args)
+        {
+            SetTitle(webViewPage, format.FormatWith(args));
         }
     }
 }

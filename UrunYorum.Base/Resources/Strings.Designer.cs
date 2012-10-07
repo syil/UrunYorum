@@ -68,5 +68,77 @@ namespace UrunYorum.Base.Resources {
                 return ResourceManager.GetString("Exceptions.DefaultMessages.RouteMapCannotResolved", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator..
+        /// </summary>
+        public static string Exceptions_ErrorMessages_UserRegister_CommonError {
+            get {
+                return ResourceManager.GetString("Exceptions.ErrorMessages.UserRegister.CommonError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A username for that e-mail address already exists. Please enter a different e-mail address..
+        /// </summary>
+        public static string Exceptions_ErrorMessages_UserRegister_DuplicateEmail {
+            get {
+                return ResourceManager.GetString("Exceptions.ErrorMessages.UserRegister.DuplicateEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username already exists. Please enter a different user name..
+        /// </summary>
+        public static string Exceptions_ErrorMessages_UserRegister_DuplicateUserName {
+            get {
+                return ResourceManager.GetString("Exceptions.ErrorMessages.UserRegister.DuplicateUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The e-mail address provided is invalid. Please check the value and try again..
+        /// </summary>
+        public static string Exceptions_ErrorMessages_UserRegister_InvalidEmail {
+            get {
+                return ResourceManager.GetString("Exceptions.ErrorMessages.UserRegister.InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password provided is invalid. Please enter a valid password value..
+        /// </summary>
+        public static string Exceptions_ErrorMessages_UserRegister_InvalidPassword {
+            get {
+                return ResourceManager.GetString("Exceptions.ErrorMessages.UserRegister.InvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user name provided is invalid. Please check the value and try again..
+        /// </summary>
+        public static string Exceptions_ErrorMessages_UserRegister_InvalidUserName {
+            get {
+                return ResourceManager.GetString("Exceptions.ErrorMessages.UserRegister.InvalidUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator..
+        /// </summary>
+        public static string Exceptions_ErrorMessages_UserRegister_ProviderError {
+            get {
+                return ResourceManager.GetString("Exceptions.ErrorMessages.UserRegister.ProviderError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator..
+        /// </summary>
+        public static string Exceptions_ErrorMessages_UserRegister_UserRejected {
+            get {
+                return ResourceManager.GetString("Exceptions.ErrorMessages.UserRegister.UserRejected", resourceCulture);
+            }
+        }
     }
 }

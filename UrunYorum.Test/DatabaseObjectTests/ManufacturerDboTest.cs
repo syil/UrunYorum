@@ -44,7 +44,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
         [TestMethod]
         public void AddRouteMapForManufacturer()
         {
-            Manufacturer manufacturer = repository.GetMany(m => m.RouteMapInfo == null).OrderBy(m => Guid.NewGuid()).FirstOrDefault();
+            Manufacturer manufacturer = repository.FindMany(m => m.RouteMapInfo == null).OrderBy(m => Guid.NewGuid()).FirstOrDefault();
 
             if (manufacturer != null)
             {

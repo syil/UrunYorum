@@ -54,6 +54,8 @@
     <Compile Include="DatabaseObjectTests\DboTestBase.cs" />
     <Compile Include="DatabaseObjectTests\ManufacturerDboTest.cs" />
     <Compile Include="DatabaseObjectTests\ProductDboTest.cs" />
+    <Compile Include="DatabaseObjectTests\ProductPictureDboTest.cs" />
+    <Compile Include="DatabaseObjectTests\RatingDboTest.cs" />
     <Compile Include="DatabaseObjectTests\ReviewDboTest.cs" />
     <Compile Include="DatabaseObjectTests\UserDboTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

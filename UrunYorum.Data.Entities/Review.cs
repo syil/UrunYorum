@@ -20,7 +20,7 @@ namespace UrunYorum.Data.Entities
         public int UnhelpfullVoteCount { get; set; }
         public string SenderIP { get; set; }
         public Guid ProductId { get; set; }
-        public Guid UserId { get; set; }
+        public Guid WriterId { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime InsertDate { get; set; }
@@ -29,6 +29,6 @@ namespace UrunYorum.Data.Entities
         public DateTime? UpdateDate { get; set; }
 
         public virtual Product Product { get; set; }
-        public User User { get; set; }
+        public virtual User Writer { get; set; }
     }
 }

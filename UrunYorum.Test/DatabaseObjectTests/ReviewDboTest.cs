@@ -41,7 +41,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
             newEntity.ReviewText = GetRandomString(GetRandom(10, 100));
             newEntity.SenderIP = "127.0.0.1";
             newEntity.Title = GetRandomString(GetRandom(3));
-            newEntity.User = user;
+            newEntity.Writer = user;
             newEntity.HelpfullVoteCount = GetRandom(10);
             newEntity.UnhelpfullVoteCount = GetRandom(10);
             
@@ -54,11 +54,11 @@ namespace UrunYorum.Test.DatabaseObjectTests
         [TestMethod]
         public void ReadReviews()
         {
-            List<Review> reviews = repository.All.ToList();
+            List<Review> reviews = repository.AllIncluding(r => r.Writer).ToList();
 
             if (reviews.Count > 0)
             {
-                CollectionAssert.AllItemsAreNotNull(reviews.Select(r => r.User).ToList());
+                CollectionAssert.AllItemsAreNotNull(reviews.Select(r => r.Writer).ToList());
                 CollectionAssert.AllItemsAreNotNull(reviews.Select(r => r.Product).ToList());
             }
             else

@@ -40,9 +40,9 @@ namespace UrunYorum.Data.Contractor.Base
             repository.Delete(entity);
         }
 
-        public virtual IEnumerable<TEntity> GetMany(Func<TEntity, bool> where)
+        public virtual IEnumerable<TEntity> FindMany(Func<TEntity, bool> where)
         {
-            return repository.GetMany(where);
+            return repository.FindMany(where);
         }
         public TEntity Find(Func<TEntity, Boolean> where)
         {

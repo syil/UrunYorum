@@ -6,7 +6,7 @@ using System.Configuration;
 
 namespace UrunYorum.Base.Utilities
 {
-    public class FileConfigurationManager : IConfigurationManager
+    public class FileConfigurationManager : Interfaces.IConfigurationManager
     {
         public FileConfigurationManager()
         {

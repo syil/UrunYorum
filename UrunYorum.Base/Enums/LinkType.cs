@@ -9,6 +9,7 @@ namespace UrunYorum.Base.Enums
     {
         CategoryDetail,
         ProductDetail,
-        ManufacturerDetail
+        ManufacturerDetail,
+        ReviewReadMore
     }
 }

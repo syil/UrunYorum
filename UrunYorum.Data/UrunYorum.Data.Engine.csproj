@@ -65,6 +65,8 @@
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="IRepositories\ICategoryRepository.cs" />
+    <Compile Include="IRepositories\IProductPictureRepository.cs" />
+    <Compile Include="IRepositories\IRatingRepository.cs" />
     <Compile Include="IRepositories\IReviewRepository.cs" />
     <Compile Include="IRepositories\ITownRepository.cs" />
     <Compile Include="IRepositories\ICountryRepository.cs" />
@@ -76,8 +78,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\CityRepository.cs" />
+    <Compile Include="Repositories\RatingRepository.cs" />
     <Compile Include="Repositories\CountryRepository.cs" />
     <Compile Include="Repositories\ManufacturerRepository.cs" />
+    <Compile Include="Repositories\ProductPictureRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\ReviewRepository.cs" />
     <Compile Include="Repositories\RouteMapRepository.cs" />

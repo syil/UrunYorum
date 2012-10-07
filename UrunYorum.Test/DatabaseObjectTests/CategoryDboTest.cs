@@ -44,7 +44,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
         [TestMethod]
         public void AddSubCategoryTest()
         {
-            Category parentCategory = dataService.GetMany(c => c.ParentCategoryId == null).OrderBy(c => Guid.NewGuid()).FirstOrDefault();
+            Category parentCategory = dataService.FindMany(c => c.ParentCategoryId == null).OrderBy(c => Guid.NewGuid()).FirstOrDefault();
 
             Category newEntity = new Category();
             newEntity.Name = "Kategori {0}".FormatWith(GetRandom());
@@ -61,7 +61,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
         [TestMethod]
         public void AddRouteMapForCategory()
         {
-            Category category = repository.GetMany(c => c.RouteMapInfo == null).OrderBy(c => Guid.NewGuid()).FirstOrDefault();
+            Category category = repository.FindMany(c => c.RouteMapInfo == null).OrderBy(c => Guid.NewGuid()).FirstOrDefault();
 
             if (category != null)
             {

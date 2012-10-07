@@ -7,7 +7,7 @@ using UrunYorum.Data.Engine.Repositories;
 using UrunYorum.Core;
 using UrunYorum.Data.Contractor;
 
-namespace UrunYorum.Controllers
+namespace UrunYorum.WebUI.Controllers
 {
     public class HomeController : BaseController
     {

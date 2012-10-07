@@ -1,11 +1,15 @@
 ﻿@using UrunYorum.Core;
+@using UrunYorum.Base.Enums;
 @using UrunYorum.Data.Entities;
 @model Review
 
 <article>
-    <strong>@Model.User.Name:</strong> 
+    <strong>@Model.Writer.Name:</strong> 
     <small>@Model.InsertDate.ToString("g")</small>
     <p>
         @Model.ReviewText
+    </p>
+    <p style="text-align:right">
+        @Html.CreateLink("Devamını Oku &raquo;", LinkType.ReviewReadMore, null, Model.Product.RouteMapInfo.Slug, ViewData["ReviewIndex"])
     </p>
 </article>

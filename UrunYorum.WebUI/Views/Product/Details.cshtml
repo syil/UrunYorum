@@ -7,7 +7,7 @@
     this.SetTitle(Model.ProductName);
 }
 <header>
-    <h2>@Html.CreateLink(Model.Manufacturer.RouteMapInfo.Slug, Model.Manufacturer.Name, LinkType.ManufacturerDetail) @Model.ProductName</h2>
+    <h2>@Html.CreateLink(Model.Manufacturer.Name, LinkType.ManufacturerDetail, null, Model.Manufacturer.RouteMapInfo.Slug) @Model.ProductName</h2>
     <h3>Detayı</h3>
 </header>
 <article>
@@ -37,9 +37,12 @@
          <header>
             <h3>@Model.Reviews.Count yorum var</h3>
         </header>
-        foreach (Review review in Model.Reviews)
+        int reviewIndex = 1;
+        foreach (Review review in Model.Reviews.OrderByDescending(r => r.InsertDate))
         {
+            ViewData["ReviewIndex"] = reviewIndex;
             @Html.Partial("../Review/Single", review, ViewData)
+            reviewIndex++;
         }
     }
     else

@@ -73,7 +73,7 @@ namespace UrunYorum.Test.DatabaseObjectTests
         [TestMethod]
         public void AddRouteMapForProduct()
         {
-            Product product = repository.GetMany(p => p.RouteMapInfo == null).OrderBy(p => Guid.NewGuid()).FirstOrDefault();
+            Product product = repository.FindMany(p => p.RouteMapInfo == null).OrderBy(p => Guid.NewGuid()).FirstOrDefault();
 
             if (product != null)
             {

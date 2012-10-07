@@ -1,0 +1,15 @@
+﻿@using UrunYorum.Core;
+@using UrunYorum.Base;
+@using UrunYorum.Data.Entities;
+@model Review
+           
+@{
+    string title = "{0}: {1}, {2}...".FormatWith(Model.Writer.Name, Model.Product.ProductName, Model.ReviewText.Substring(0, 20));
+    this.SetTitle(title);
+}
+
+<h2>@Model.Writer.Name:</h2>
+<h3>@Model.Product.ProductName</h3>
+<span>@Model.InsertDate.ToString()</span>
+<p>@Model.ReviewText</p>
+<progress max="@(Model.HelpfullVoteCount+Model.UnhelpfullVoteCount)" value="@Model.HelpfullVoteCount"></progress>

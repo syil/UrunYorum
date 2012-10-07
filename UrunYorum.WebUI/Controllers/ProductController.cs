@@ -10,7 +10,7 @@ using UrunYorum.Core;
 using UrunYorum.Data.Contractor.IServices;
 using Microsoft.Practices.Unity;
 
-namespace UrunYorum.Controllers
+namespace UrunYorum.WebUI.Controllers
 {
     public class ProductController : BaseController
     {

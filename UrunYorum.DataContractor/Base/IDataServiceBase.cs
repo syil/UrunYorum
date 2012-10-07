@@ -9,7 +9,7 @@ namespace UrunYorum.Data.Contractor.Base
     public interface IDataServiceBase<TEntity>
         where TEntity : class, new()
     {
-        IEnumerable<TEntity> GetMany(Func<TEntity, bool> where);
+        IEnumerable<TEntity> FindMany(Func<TEntity, bool> where);
         IQueryable<TEntity> AllIncluding(params Expression<Func<TEntity, object>>[] includeProperties);
 
         TEntity Get(Guid id);

@@ -9,7 +9,7 @@ using UrunYorum.Data.Entities;
 using UrunYorum.Data.Contractor.IServices;
 using Microsoft.Practices.Unity;
 
-namespace UrunYorum.Controllers
+namespace UrunYorum.WebUI.Controllers
 {
     public class CategoryController : BaseController
     {
@@ -19,7 +19,7 @@ namespace UrunYorum.Controllers
         [ChildActionOnly, OutputCache(Duration = 604800)]
         public PartialViewResult CategoryMenu()
         {
-            List<Category> categories = CategoryDataService.GetMany(c => c.IsActive && c.ParentCategory == null).ToList();
+            List<Category> categories = CategoryDataService.FindMany(c => c.IsActive && c.ParentCategory == null).ToList();
 
             return PartialView(categories);
         }

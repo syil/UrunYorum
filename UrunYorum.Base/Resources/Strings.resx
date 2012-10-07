@@ -120,4 +120,28 @@
   <data name="Exceptions.DefaultMessages.RouteMapCannotResolved" xml:space="preserve">
     <value>This route cannot be resolved</value>
   </data>
+  <data name="Exceptions.ErrorMessages.UserRegister.CommonError" xml:space="preserve">
+    <value>An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="Exceptions.ErrorMessages.UserRegister.DuplicateEmail" xml:space="preserve">
+    <value>A username for that e-mail address already exists. Please enter a different e-mail address.</value>
+  </data>
+  <data name="Exceptions.ErrorMessages.UserRegister.DuplicateUserName" xml:space="preserve">
+    <value>Username already exists. Please enter a different user name.</value>
+  </data>
+  <data name="Exceptions.ErrorMessages.UserRegister.InvalidEmail" xml:space="preserve">
+    <value>The e-mail address provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="Exceptions.ErrorMessages.UserRegister.InvalidPassword" xml:space="preserve">
+    <value>The password provided is invalid. Please enter a valid password value.</value>
+  </data>
+  <data name="Exceptions.ErrorMessages.UserRegister.InvalidUserName" xml:space="preserve">
+    <value>The user name provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="Exceptions.ErrorMessages.UserRegister.ProviderError" xml:space="preserve">
+    <value>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="Exceptions.ErrorMessages.UserRegister.UserRejected" xml:space="preserve">
+    <value>The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
 </root>

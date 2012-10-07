@@ -4,6 +4,6 @@
 @model Product
 
 <div class="product-list-item">
-    <h4>@Model.Manufacturer.Name @Html.CreateLink(Model.RouteMapInfo.Slug, Model.ProductName, LinkType.ProductDetail)</h4>
+    <h4>@Model.Manufacturer.Name @Html.CreateLink(Model.ProductName, LinkType.ProductDetail, null, Model.RouteMapInfo.Slug)</h4>
     <p class="short-description">@Model.ShortDescription</p>
 </div>

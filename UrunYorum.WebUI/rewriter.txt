@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteLog "rewrite.log"
+RewriteLog "rewriter.log"
 RewriteLogLevel 9
 
 RouteIgnoreUrl {resource}.axd/{*pathInfo}
@@ -8,9 +8,22 @@ RouteDefault controller Product
 RouteDefault action Details
 RouteUrl product/{slug} "ProductDetail"
 
+RouteDefault controller Review
+RouteDefault action ReadMore
+RouteUrl product/{productSlug}/reviews/{reviewIndex} "ReviewReadMore"
+
 RouteDefault controller Category
 RouteDefault action Details
 RouteUrl category/{slug} "CategoryDetail"
+
+RouteDefault controller Account
+RouteDefault action LogIn
+RouteUrl account/login "LogIn"
+
+# ----------------------------------------------------------
+RouteDefault controller Category
+RouteDefault action CategoryMenu
+RouteUrl Category/CategoryMenu "CategoryMenu"
 
 RouteDefault controller Home
 RouteDefault action Index

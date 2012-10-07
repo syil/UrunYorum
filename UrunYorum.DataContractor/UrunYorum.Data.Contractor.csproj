@@ -50,13 +50,17 @@
     <Compile Include="IServices\ICountryDataService.cs" />
     <Compile Include="IServices\IManufacturerDataService.cs" />
     <Compile Include="IServices\IProductDataService.cs" />
+    <Compile Include="IServices\IProductPictureDataService.cs" />
+    <Compile Include="IServices\IRatingDataService.cs" />
     <Compile Include="IServices\IReviewDataService.cs" />
     <Compile Include="IServices\IRouteMapDataService.cs" />
     <Compile Include="IServices\ITownDataService.cs" />
     <Compile Include="IServices\IUserDataService.cs" />
     <Compile Include="ManufacturerDataService.cs" />
     <Compile Include="ProductDataService.cs" />
+    <Compile Include="ProductPictureDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingDataService.cs" />
     <Compile Include="ReviewDataService.cs" />
     <Compile Include="RouteMapDataService.cs" />
     <Compile Include="TownDataService.cs" />

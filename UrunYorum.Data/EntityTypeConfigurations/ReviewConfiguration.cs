@@ -16,9 +16,9 @@ namespace UrunYorum.Data.Engine.EntityTypeConfigurations
                 .HasForeignKey(r => r.ProductId)
                 .WillCascadeOnDelete(false);
 
-            HasRequired(r => r.User)
+            HasRequired(r => r.Writer)
                .WithMany()
-               .HasForeignKey(r => r.UserId);
+               .HasForeignKey(r => r.WriterId);
         }
     }
 }

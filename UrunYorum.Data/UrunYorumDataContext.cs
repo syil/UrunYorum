@@ -14,6 +14,7 @@ namespace UrunYorum.Data.Engine
         public UrunYorumDataContext()
             : base(SystemConstants.ConnectionStringName)
         {
+
         }
 
         public DbSet<Product> Products { get; set; }

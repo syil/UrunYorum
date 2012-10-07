@@ -34,7 +34,7 @@ namespace UrunYorum.Data.Engine.Infrastructure
             dbset.Remove(entity);
         }
 
-        public virtual IEnumerable<TEntity> GetMany(Func<TEntity, bool> where)
+        public virtual IEnumerable<TEntity> FindMany(Func<TEntity, bool> where)
         {
             return dbset.Where(where).ToList();
         }
