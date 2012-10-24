@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="DatabaseObjectTests\CategoryDboTest.cs" />
     <Compile Include="DatabaseObjectTests\DboTestBase.cs" />
+    <Compile Include="DatabaseObjectTests\LoginDboTest.cs" />
     <Compile Include="DatabaseObjectTests\ManufacturerDboTest.cs" />
     <Compile Include="DatabaseObjectTests\ProductDboTest.cs" />
     <Compile Include="DatabaseObjectTests\ProductPictureDboTest.cs" />

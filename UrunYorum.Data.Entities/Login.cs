@@ -18,7 +18,6 @@ namespace UrunYorum.Data.Entities
         public string AuthenticateKey { get; set; }
         public bool IsAuthenticated { get; set; }
         public bool IsDeleted { get; set; }
-        public Guid UserId { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime? AuthenticateDate { get; set; }

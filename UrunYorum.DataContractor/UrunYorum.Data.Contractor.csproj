@@ -48,6 +48,7 @@
     <Compile Include="IServices\ICategoryDataService.cs" />
     <Compile Include="IServices\ICityDataService.cs" />
     <Compile Include="IServices\ICountryDataService.cs" />
+    <Compile Include="IServices\ILoginDataService.cs" />
     <Compile Include="IServices\IManufacturerDataService.cs" />
     <Compile Include="IServices\IProductDataService.cs" />
     <Compile Include="IServices\IProductPictureDataService.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="IServices\IRouteMapDataService.cs" />
     <Compile Include="IServices\ITownDataService.cs" />
     <Compile Include="IServices\IUserDataService.cs" />
+    <Compile Include="LoginDataService.cs" />
     <Compile Include="ManufacturerDataService.cs" />
     <Compile Include="ProductDataService.cs" />
     <Compile Include="ProductPictureDataService.cs" />

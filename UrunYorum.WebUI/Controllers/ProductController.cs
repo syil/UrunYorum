@@ -48,7 +48,7 @@ namespace UrunYorum.WebUI.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult ListItem(Guid uid)
+        public PartialViewResult _ListItem(Guid uid)
         {
             Product product = null;
 

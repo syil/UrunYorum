@@ -25,10 +25,12 @@ namespace UrunYorum.Test.DatabaseObjectTests
         [TestMethod]
         public void AddUserTest()
         {
+            int randomUserNumber = GetRandom();
+
             User newEntity = new User();
             newEntity.IsActive = true;
             newEntity.IsDeleted = false;
-            newEntity.Name = "Kullanıcı {0}".FormatWith(GetRandom());
+            newEntity.Name = "Kullanıcı {0}".FormatWith(randomUserNumber);
             newEntity.RegisterDate = DateTime.Now;
 
             dataService.Insert(newEntity);

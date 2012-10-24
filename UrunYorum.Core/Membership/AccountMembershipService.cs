@@ -29,21 +29,26 @@ namespace UrunYorum.Core.Membership
             return provider.ValidateUser(userName, password);
         }
 
-        public Guid Register(string userName, string password, string email)
+        public string Register(string userName, string password, string email)
         {
             MembershipCreateStatus status;
-            Guid providerUserKey = Guid.NewGuid();
 
-            provider.CreateUser(userName, password, email, null, null, true, providerUserKey, out status);
-
+            provider.CreateUser(userName, password, email, null, null, true, Guid.NewGuid(), out status);
+            
             if (status == MembershipCreateStatus.Success)
             {
-                return providerUserKey;
+                return userName;
             }
             else
             {
                 throw new UserRegisterFailedException(ErrorCodeToString(status));
             }
+        }
+
+        public AccountInfoBase GetUserInfo(string key)
+        {
+            MembershipUser membershipUser = provider.GetUser(key, false);
+            return (AspNetMembershipAccount)membershipUser;
         }
 
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using UrunYorum.Data.Contractor;
-using UrunYorum.Core;
-using UrunYorum.Data.Entities;
-using UrunYorum.Data.Contractor.IServices;
+using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
 using Microsoft.Practices.Unity;
+using UrunYorum.Core;
+using UrunYorum.Data.Contractor;
+using UrunYorum.Data.Contractor.IServices;
+using UrunYorum.Data.Entities;
 
 namespace UrunYorum.WebUI.Controllers
 {
@@ -17,9 +17,19 @@ namespace UrunYorum.WebUI.Controllers
         public ICategoryDataService CategoryDataService { get; set; }
 
         [ChildActionOnly, OutputCache(Duration = 604800)]
-        public PartialViewResult CategoryMenu()
+        public PartialViewResult _CategoryMenu()
         {
-            List<Category> categories = CategoryDataService.FindMany(c => c.IsActive && c.ParentCategory == null).ToList();
+            List<Category> categories = null;
+            try
+            {
+                categories = CategoryDataService.FindMany(c => c.IsActive && c.ParentCategory == null).ToList();
+            }
+            catch (Exception exc)
+            {
+                bool rethrow = ExceptionPolicy.HandleException(exc, SystemConstants.ExceptionLogPolicyName);
+                if (rethrow)
+                    throw;
+            }
 
             return PartialView(categories);
         }
@@ -31,9 +41,11 @@ namespace UrunYorum.WebUI.Controllers
             {
                 category = CategoryDataService.Find(c => c.RouteMapInfo.Slug == slug);
             }
-            catch (Exception)
+            catch (Exception exc)
             {
-
+                bool rethrow = ExceptionPolicy.HandleException(exc, SystemConstants.ExceptionLogPolicyName);
+                if (rethrow)
+                    throw;
             }
 
             return View(category);

@@ -2,22 +2,28 @@
 @using UrunYorum.Core;
 @using UrunYorum.Base.Enums;
 @model Product
-
 @{
     this.SetTitle(Model.ProductName);
 }
 <header>
-    <h2>@Html.CreateLink(Model.Manufacturer.Name, LinkType.ManufacturerDetail, null, Model.Manufacturer.RouteMapInfo.Slug) @Model.ProductName</h2>
-    <h3>Detayı</h3>
+    <h2>@Html.CreateLink(Model.Manufacturer.Name, LinkType.ManufacturerDetail, null, Model.Manufacturer.RouteMapInfo.Slug)
+        @Model.ProductName</h2>
+    <h3>
+        Detayı</h3>
 </header>
 <article>
     <table>
         <tr>
-            <td>Ürün Adı</td>
-            <td>@Model.ProductName</td>
+            <td>
+                Ürün Adı
+            </td>
+            <td>@Model.ProductName
+            </td>
         </tr>
         <tr>
-            <td>Üretici Bilgisi</td>
+            <td>
+                Üretici Bilgisi
+            </td>
             <td>
                 @Model.Manufacturer.FullName
                 <br />
@@ -25,8 +31,11 @@
             </td>
         </tr>
         <tr>
-            <td>Ürün Adı</td>
-            <td>@Model.ProductName</td>
+            <td>
+                Ürün Adı
+            </td>
+            <td>@Model.ProductName
+            </td>
         </tr>
     </table>
 </article>
@@ -34,14 +43,14 @@
 <section>
     @if (Model.Reviews.Count > 0)
     {
-         <header>
+        <header>
             <h3>@Model.Reviews.Count yorum var</h3>
         </header>
         int reviewIndex = 1;
         foreach (Review review in Model.Reviews.OrderByDescending(r => r.InsertDate))
         {
             ViewData["ReviewIndex"] = reviewIndex;
-            @Html.Partial("../Review/Single", review, ViewData)
+            @Html.Partial("../Review/_Single", review, ViewData)
             reviewIndex++;
         }
     }
@@ -49,5 +58,21 @@
     {
         <span>Yorum Yazılmamış</span>
     }
-   
 </section>
+@if (User.Identity.IsAuthenticated)
+{ 
+<section>
+    <header>
+        <h3>Yorum Yaz</h3>
+    </header>
+    <form action="ajax/add-comment">
+        <input type="text" name="Title" />
+        <textarea cols="50" rows="3" name="ReviewText"></textarea>
+        <input type="hidden" name="WriterId" value="@ViewBag.CurrentUser.UserId" />
+        <input type="hidden" name="ProductId" value="@Model.ProductId" />
+    </form>
+</section>
+}
+else { 
+    <p>Yorum yazmak için giriş yapın</p>
+}

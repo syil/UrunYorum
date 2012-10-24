@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Initialize</title>
+</head>
+<body>
+    <div>
+        @if (ViewBag.HasError == true)
+        { 
+            <h1>Hata</h1>
+            <p>@ViewBag.ErrorMessage</p>
+        }
+        else { 
+            <h1>Başarılı</h1>
+        }
+    </div>
+</body>
+</html>

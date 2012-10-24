@@ -11,9 +11,7 @@ namespace UrunYorum.Data.Engine.EntityTypeConfigurations
     {
         public LoginConfiguration()
         {
-            HasRequired(l => l.User)
-                .WithMany()
-                .HasForeignKey(l => l.UserId);
+            HasKey(l => l.LoginId);
         }
     }
 }

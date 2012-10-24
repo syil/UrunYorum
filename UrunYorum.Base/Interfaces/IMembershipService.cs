@@ -8,6 +8,7 @@ namespace UrunYorum.Base.Interfaces
     public interface IMembershipService
     {
         bool Validate(string userName, string password);
-        Guid Register(string userName, string password, string email);
+        string Register(string userName, string password, string email);
+        AccountInfoBase GetUserInfo(string key);
     }
 }

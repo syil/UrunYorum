@@ -25,6 +25,7 @@ namespace UrunYorum.Data.Entities
         [DataType(DataType.DateTime)]
         public DateTime? LastSeenDate { get; set; }
 
+        public virtual Login LoginInfo { get; set; }
         public virtual City City { get; set; }
         public virtual Town Town { get; set; }
         public virtual Country Country { get; set; }

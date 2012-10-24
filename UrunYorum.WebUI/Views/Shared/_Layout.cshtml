@@ -11,7 +11,8 @@
 
 <body>
     <header>
-        @Html.Action("CategoryMenu", new { controller = "Category", action = "CategoryMenu" })
+        @Html.Action("_CategoryMenu", new { controller = "Category", action = "_CategoryMenu" })
+        @Html.Action("_LoginStatus", new { controller = "Account", action = "_LoginStatus" })
         <div class="space"></div>
     </header>
     <section>

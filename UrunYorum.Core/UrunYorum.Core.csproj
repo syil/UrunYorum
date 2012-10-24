@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="BaseController.cs" />
     <Compile Include="Membership\AccountMembershipService.cs" />
+    <Compile Include="Membership\AspNetMembershipAccount.cs" />
     <Compile Include="Membership\FormsAuthenticationService.cs" />
     <Compile Include="MvcViewExtensions.cs" />
     <Compile Include="IoC\HttpContextLifetimeManager.cs" />

@@ -38,6 +38,7 @@ namespace UrunYorum.Data.Engine
             modelBuilder.Configurations.Add(new ReviewConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
             modelBuilder.Configurations.Add(new LoginConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new CityConfiguration());
             modelBuilder.Configurations.Add(new TownConfiguration());
             modelBuilder.Configurations.Add(new RouteMapConfiguration());

@@ -1,0 +1,32 @@
+﻿<div style="background: #eaeaea; float: right">
+    @if (ViewBag.IsAuthenticated)
+    {
+        <span>Naber @ViewBag.UserName</span>
+        <br />
+        <a href="/account/logoff?returnUrl=/product/urun-35376-xw">Çıkış</a>
+    }
+    else
+    { 
+        <form action="/account/login" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" name="UserName" />
+                    </td>
+                    <td>
+                        <input type="password" name="Password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="Submit" value="Giriş" />
+                    </td>
+                    <td>
+                        <a href="/account/register">Kayıt</a>
+                    </td>
+                </tr>
+            </table>
+        <input type="hidden" name="returnUrl" value="/category/kategori-21166" />
+        </form>
+    }
+</div>

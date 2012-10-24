@@ -20,11 +20,31 @@ RouteDefault controller Account
 RouteDefault action LogIn
 RouteUrl account/login "LogIn"
 
+RouteDefault controller Account
+RouteDefault action LogOff
+RouteUrl account/logoff "LogOff"
+
+RouteDefault controller Home
+RouteDefault action Initialize
+RouteUrl initialize "Initialize"
+
 # ----------------------------------------------------------
 RouteDefault controller Category
-RouteDefault action CategoryMenu
-RouteUrl Category/CategoryMenu "CategoryMenu"
+RouteDefault action _CategoryMenu
+RouteUrl Category/_CategoryMenu "CategoryMenu"
+
+RouteDefault controller Account
+RouteDefault action _LoginStatus
+RouteUrl Account/_LoginStatus "LoginStatus"
 
 RouteDefault controller Home
 RouteDefault action Index
-RouteUrl {controller}/{action}/{slug} "Default"
+RouteUrl main "MainPage1"
+
+RouteDefault controller Home
+RouteDefault action Index
+RouteUrl Home/Index "MainPage2"
+
+RouteDefault controller Home
+RouteDefault action Index
+RouteUrl {controller}/{action} "Default"

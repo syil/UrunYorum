@@ -1,8 +1,13 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Configuration;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Web;
+using System.Web.Management;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Microsoft.Practices.Unity;
+using UrunYorum.Core;
 using UrunYorum.Core.IoC;
 using UrunYorum.Data.Contractor;
 using UrunYorum.Data.Contractor.IServices;
@@ -10,6 +15,9 @@ using UrunYorum.Data.Engine;
 using UrunYorum.Data.Engine.Infrastructure;
 using UrunYorum.Data.Engine.IRepositories;
 using UrunYorum.Data.Engine.Repositories;
+using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
+using UrunYorum.Core.Membership;
+using UrunYorum.Base.Interfaces;
 
 namespace UrunYorum
 {
@@ -32,9 +40,8 @@ namespace UrunYorum
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
-            RegisterRoutes(RouteTable.Routes);
-
-            Database.SetInitializer(new UrunYorumDbInitializer());
+            //RegisterRoutes(RouteTable.Routes);
+            
 
             InitContainer();
             //ControllerBuilder.Current.SetControllerFactory(new UnityControllerFactory());
@@ -57,6 +64,9 @@ namespace UrunYorum
             container.RegisterType<IUserRepository, UserRepository>(new HttpContextLifetimeManager<IUserRepository>());
             container.RegisterType<IUserDataService, UserDataService>(new HttpContextLifetimeManager<IUserRepository>());
 
+            container.RegisterType<ILoginRepository, LoginRepository>(new HttpContextLifetimeManager<ILoginRepository>());
+            container.RegisterType<ILoginDataService, LoginDataService>(new HttpContextLifetimeManager<ILoginRepository>());
+
             container.RegisterType<IManufacturerRepository, ManufacturerRepository>(new HttpContextLifetimeManager<IManufacturerRepository>());
             container.RegisterType<IManufacturerDataService, ManufacturerDataService>(new HttpContextLifetimeManager<IManufacturerRepository>());
 
@@ -68,6 +78,8 @@ namespace UrunYorum
 
             container.RegisterType<IReviewRepository, ReviewRepository>(new HttpContextLifetimeManager<IReviewRepository>());
             container.RegisterType<IReviewDataService, ReviewDataService>(new HttpContextLifetimeManager<IReviewRepository>());
+
+            container.RegisterType<IAuthenticationService, FormsAuthenticationService>(new HttpContextLifetimeManager<IAuthenticationService>());
         }
     }
 }

@@ -11,7 +11,12 @@ namespace UrunYorum.Data.Engine.EntityTypeConfigurations
     {
         public UserConfiguration()
         {
-
+            HasOptional(u => u.LoginInfo)
+                .WithOptionalPrincipal(l => l.User)
+                .Map(m =>
+                {
+                    m.MapKey("UserId");
+                });
         }
     }
 }
